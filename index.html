@@ -3,101 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Cadastro</title>
+    <title>Cadastro de Usuário - SENAI</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        }
+        .container {
+        background-color: white;
+        padding: 300px;
+        padding: 30px;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 450px;
+        }
+        .instrucoes {
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        }
+        h2 {
+        margin-top: 0;
+        font-size: 20px;
+        }
+        .campo {
+        margin-bottom: 15px;
+        }
+        label {
+        display: block;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+        }
+        input, select {
+         width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input::placeholder {
+        color: #999;
+        font-size: 13px;
+        }
+        .btn-cadastrar {
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-top: 10px;
+        }
+        .tela-sucesso {
+        background-color: #0000ff; 
+        color: white;
+        text-align: center;
+        padding: 60px 40px;
+        border-radius: 4px;
+        width: 100%;
+        max-width: 450px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tela-sucesso h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        font-weight: bold;
+        }
+        .btn-voltar {
+        background-color: white;
+        color: #0000ff;
+        border: none;
+        padding: 10px 25px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
 
-    <form action="#" method="post">
-        
-    <fieldset>
-    <legend>Informações Pessoais</legend>
-            
-    <p>
-    <label for="nome">Nome completo:</label>
-    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
-    </p>
+    <div id="tela-cadastro" class="container">
 
-    <p>
-    <label for="email">E-MAIL:</label>
-    <input type="email" id="email" name="email" placeholder="exemploemail@gmail.com" required>
-    </p>
+        <h2>Cadastro de Usuário</h2>
 
-    <p>
-    <label for="senha">Crie uma senha:</label>
-    <input type="password" id="senha" name="senha" minlength="6" maxlength="12" required>
-    </p>
-            
-    <p>
-    <label for="nascimento">Data de nascimento:</label>
-    <input type="date" id="nascimento" name="nascimento" required>
-    </p>
-    </fieldset> 
+        <form id="meuFormulario" onsubmit="validarEEnviar(event)">
+            <div class="campo">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" required>
+            </div>
 
-    <fieldset>
-    <legend>Contato e Localização</legend>
-            
-    <p>
-    <label for="telefone">Telefone:</label>
-    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-    </p>
+            <div class="campo">
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="date" id="nascimento" required>
+            </div>
 
-    <p>
-    <label for="cidade">Cidade:</label>
-    <input type="text" id="cidade" name="cidade" required>
-    </p>
+            <div class="campo">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" placeholder="Apenas números (11 dígitos)" maxlength="11" required>
+            </div>
 
-    <p>
-    <label for="estado">Estado:</label>
-    <select id="estado" name="estado" required>
-    <option value="">Selecione</option>
-    <option value="SC">Santa Catarina</option>
-    <option value="PR">Paraná</option>
-    <option value="PE">Pernambuco</option>
-    <option value="SP">São Paulo</option>
-    <option value="BA">Bahia</option>
-    <option value="RJ">Rio de Janeiro</option>
-    <option value="RS">Rio Grande do Sul</option>
-    </select>
-    </p>
-        </fieldset>
+            <div class="campo">
+                <label for="genero">Gênero:</label>
+                <select id="genero" required>
+                    <option value="">Selecione</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="O">Outro</option>
+                </select>
+            </div>
 
-        <fieldset>
-    <legend>Preferências de Serviço</legend>
+            <div class="campo">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+            </div>
 
-    <p>Deseja receber novidades por e-mail?</p>
-    <input type="radio" id="sim" name="novidades" value="sim" required>
-    <label for="sim">Sim</label>
+            <div class="campo">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" required>
+            </div>
 
-    <input type="radio" id="nao" name="novidades" value="nao">
-    <label for="nao">Não</label>
+            <div class="campo">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" required>
+            </div>
 
-    <p>Selecione os serviços de interesse:</p>
-    <p>
-    <input type="checkbox" id="web" name="servicos" value="web">
-    <label for="web">Desenvolvimento Web</label>
-    </p>
+            <div class="campo">
+                <label for="estado">UF (Estado):</label>
+                <select id="estado" required>
+                    <option value="">Selecione</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
 
-    <p>
-    <input type="checkbox" id="design" name="servicos" value="design">
-    <label for="design">Redes de Computadores</label>
-    </p>
-    </fieldset>
+            <button type="submit" class="btn-cadastrar">Cadastrar</button>
+        </form>
+    </div>
 
-    <fieldset>
-    <legend>Comentários</legend>
-    <p>
-    <label for="mensagem">Deixe sua mensagem ;3 (Opcional)</label>
-    <br>
-    <textarea id="mensagem" name="mensagem" rows="6" cols="50" placeholder="Digite suas observações..."></textarea>
-    </p>
-    </fieldset>
+    <div id="tela-agradecimento" class="tela-sucesso" style="display: none;">
+        <h1>O SENAI AGRADECE SUA INSCRIÇÃO!!!</h1>
+        <button class="btn-voltar" onclick="voltarParaCadastro()">Voltar</button>
+    </div>
 
-    <br>
-    <button type="submit">Enviar Cadastro</button>
-    <button type="reset">Limpar</button>
+    <script>
+        function validarEEnviar(event) {
+            event.preventDefault();
 
-    </form> 
+            var cpfInput = document.getElementById("cpf").value;
+
+            if (cpfInput.length !== 11 || isNaN(cpfInput)) {
+                alert("Erro: O campo CPF deve conter exatamente 11 caracteres numéricos.");
+                return false;
+            }
+
+            document.getElementById("tela-cadastro").style.display = "none";
+            document.getElementById("tela-agradecimento").style.display = "block";
+        }
+
+        function voltarParaCadastro() {
+            document.getElementById("meuFormulario").reset();
+            document.getElementById("tela-agradecimento").style.display = "none";
+            document.getElementById("tela-cadastro").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
-
