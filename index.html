@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+
+    <form action="#" method="post">
+        
+    <fieldset>
+    <legend>Informações Pessoais</legend>
+            
+    <p>
+    <label for="nome">Nome completo:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+    </p>
+
+    <p>
+    <label for="email">E-MAIL:</label>
+    <input type="email" id="email" name="email" placeholder="exemploemail@gmail.com" required>
+    </p>
+
+    <p>
+    <label for="senha">Crie uma senha:</label>
+    <input type="password" id="senha" name="senha" minlength="6" maxlength="12" required>
+    </p>
+            
+    <p>
+    <label for="nascimento">Data de nascimento:</label>
+    <input type="date" id="nascimento" name="nascimento" required>
+    </p>
+    </fieldset> 
+
+    <fieldset>
+    <legend>Contato e Localização</legend>
+            
+    <p>
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+    </p>
+
+    <p>
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" required>
+    </p>
+
+    <p>
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado" required>
+    <option value="">Selecione</option>
+    <option value="SC">Santa Catarina</option>
+    <option value="PR">Paraná</option>
+    <option value="PE">Pernambuco</option>
+    <option value="SP">São Paulo</option>
+    <option value="BA">Bahia</option>
+    <option value="RJ">Rio de Janeiro</option>
+    <option value="RS">Rio Grande do Sul</option>
+    </select>
+    </p>
+        </fieldset>
+
+        <fieldset>
+    <legend>Preferências de Serviço</legend>
+
+    <p>Deseja receber novidades por e-mail?</p>
+    <input type="radio" id="sim" name="novidades" value="sim" required>
+    <label for="sim">Sim</label>
+
+    <input type="radio" id="nao" name="novidades" value="nao">
+    <label for="nao">Não</label>
+
+    <p>Selecione os serviços de interesse:</p>
+    <p>
+    <input type="checkbox" id="web" name="servicos" value="web">
+    <label for="web">Desenvolvimento Web</label>
+    </p>
+
+    <p>
+    <input type="checkbox" id="design" name="servicos" value="design">
+    <label for="design">Redes de Computadores</label>
+    </p>
+    </fieldset>
+
+    <fieldset>
+    <legend>Comentários</legend>
+    <p>
+    <label for="mensagem">Deixe sua mensagem ;3 (Opcional)</label>
+    <br>
+    <textarea id="mensagem" name="mensagem" rows="6" cols="50" placeholder="Digite suas observações..."></textarea>
+    </p>
+    </fieldset>
+
+    <br>
+    <button type="submit">Enviar Cadastro</button>
+    <button type="reset">Limpar</button>
+
+    </form> 
+
+</body>
+</html>
 
